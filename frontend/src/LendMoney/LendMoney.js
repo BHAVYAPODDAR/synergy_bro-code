@@ -29,9 +29,9 @@ const LendMoney = () => {
       <h1 className="text-5xl font-thin mb-5">Loan requests</h1>
       <div className="w-full h-full bg-white grid grid-cols-5 gap-3 p-3 shadow-lg rounded-lg">
         <h1 className="text-xl text-gray-800 font-bold ">Applicant name</h1>
-        <h1 className="text-xl text-gray-800 font-bold ">Loan amount</h1>
-        <h1 className="text-xl text-gray-800 font-bold ">Loan period</h1>
-        <h1 className="text-xl text-gray-800 font-bold ">Credit score</h1>
+        <h1 className="text-xl text-gray-800 font-bold ">Sex</h1>
+        <h1 className="text-xl text-gray-800 font-bold ">Age</h1>
+        <h1 className="text-xl text-gray-800 font-bold ">IQ</h1>
         <h1 className="text-xl text-gray-800 font-bold ">Risk assessment</h1>
       </div>
       {loanData.map((data, index) => (

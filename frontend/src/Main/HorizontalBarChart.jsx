@@ -11,11 +11,11 @@ import {
 
 const HorizontalBarChart = (props) => {
   const data = [
-    { name: "Yield performance", value: 87 },
-    { name: "Soil health", value: 123 },
-    { name: "Irrigation condition", value: 145 },
-    { name: "Risk property (Flood)", value: 56 },
-    { name: "Risk property (Drought)", value: 61 },
+    { name: "Alpha", value: 87 },
+    { name: "Beta", value: 123 },
+    { name: "Gamma", value: 145 },
+    { name: "Theta", value: 56 },
+    { name: "HighBeta", value: 61 },
   ];
 
   const formattedData = data.map(({ name, value }) => ({

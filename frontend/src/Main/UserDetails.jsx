@@ -54,32 +54,32 @@ const UserDetails = (props) => {
       <div className="flex justify-around items-center px-5">
         <section className="grid grid-cols-2 gap-x-20 gap-y-5">
           <Items
-            key="Yield Performance"
-            name="Yield Performance"
+            key="highbeta"
+            name="highbeta"
             value={props.yield_performance}
             maxValue="200"
           />
           <Items
-            key="Soil health"
-            name="Soil health"
+            key="Alpha"
+            name="Alpha"
             value={props.soil_health}
             maxValue="200"
           />
           <Items
-            key="Irrigation condition"
-            name="Irrigation conition"
+            key="Beta"
+            name="Beta"
             value={props.irrigation_condition}
             maxValue="200"
           />
           <Items
-            key="Risk property (Flood)"
-            name="Risk property (Flood)"
+            key="Gamma"
+            name="Gamma"
             value={props.risk_property_flood}
             maxValue="200"
           />
           <Items
-            key="Risk property (Drought)"
-            name="Risk property (Drought)"
+            key="Theta"
+            name="Theta"
             value={props.risk_property_drought}
             maxValue="200"
           />

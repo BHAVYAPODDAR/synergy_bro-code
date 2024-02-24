@@ -36,7 +36,7 @@ const MainDash = () => {
     <div className="p-5 h-full ">
       <div className=" bg-white h-3/4 p-3 rounded-md text-gray-900 border-2 mb-3">
         <h1 className="text-3xl font-bold  border-b-2 pb-2">My Dashboard</h1>
-        {/* Pass soilData as a prop to UserDetails component */}
+
         <UserDetails
           yield_performance={soilData.yield_performance}
           soil_health={soilData.soil_health}
@@ -45,12 +45,12 @@ const MainDash = () => {
           risk_property_drought={soilData.risk_property_drought}
         />
       </div>
-      <div>
+      {/* <div>
         <h1 className="text-xl font-bold py-3">
           Major crops & their performance
         </h1>
         <DataTable data={CropData} />
-      </div>
+      </div> */}
     </div>
   );
 };
