@@ -28,12 +28,12 @@ const Carousel = ({ textData }) => {
         <FaArrowCircleLeft
           onClick={handlePrev}
           size={30}
-          className="text-[#62D69C] cursor-pointer"
+          className="bg-gradient-to-br from-[#d36cdb] to-[#407BFF]  rounded-full cursor-pointer"
         />
         <FaArrowCircleRight
           onClick={handleNext}
           size={30}
-          className="text-[#62D69C] cursor-pointer"
+          className="bg-gradient-to-br from-[#d36cdb] to-[#407BFF]  rounded-full  cursor-pointer"
         />
       </div>
     </div>
@@ -42,13 +42,11 @@ const Carousel = ({ textData }) => {
 
 const Hero = () => {
   const text = [
-    "Empower your business with TruComply: Modern Compliance Solutions for Tomorrow’s World.",
-    "Seamlessly navigate the regulatory landscape and unlock your business potential.",
-    "Stay ahead of the curve with innovative compliance technology, tailored to your needs.",
+    " A clinically validated AI and therapy combo that ensures you're never alone on your journey to well-being, wherever life takes you!",
   ];
 
   return (
-    <div className="h-auto pb-20 bg-gradient-to-br from-blue-200 to-green-200">
+    <div className="h-auto pb-20 bg-gradient-to-br from-blue-200 to-[#d36cdb]">
       <Navbar />
 
       <div className="md:flex w-full items-center justify-center mt-5 text-black">
@@ -63,42 +61,43 @@ const Hero = () => {
           </div>
 
           <h1 className="md:text-[45px] text-5xl font-semibold pt-3 -ml-4 ">
-            Elevate
-            <span className="bg-[#9cefc5] px-4 rounded-full mx-5 text-gray-800">
-              Agri Fintech
+            Empower Minds
+            <span className="bg-gradient-to-br from-[#d36cdb] to-[#407BFF] px-4 rounded-full mx-5 text-gray-800">
+              CareAI
             </span>{" "}
             <br />
-            Precision.
+            Nurturing Lives
           </h1>
 
           <p className="text-sm py-10 pr-40 font-bold my-5 text-gray-800">
-            TruComply offers modern compliance solutions designed to help
-            businesses seamlessly navigate the landscape, unlocking their full
-            potential in tomorrow’s world.
+            Welcome to Care AI, your companion for mental wellness. With
+            cutting-edge technology, we empower individuals to prioritize their
+            mental health, offering personalized support and resources to foster
+            a balanced and resilient mindset
           </p>
 
           <div className="flex items-center gap-7 uppercase text-xs font-extrabold text-gray-800">
             <p className="flex items-center justify-start gap-1">
-              <FaCheckCircle size={20} className="text-green-500" />
-              Alert System
+              <FaCheckCircle size={20} className="text-[#407BFF]" />
+              Accesible 24/7
             </p>
             <p className="flex items-center justify-start gap-1">
-              <FaCheckCircle size={20} className="text-green-500" />
-              Checklist Generator
+              <FaCheckCircle size={20} className="text-[#407BFF]" />
+              Secure
             </p>
             <p className="flex items-center justify-start gap-1">
-              <FaCheckCircle size={20} className="text-green-500" />
-              Guidance System
+              <FaCheckCircle size={20} className="text-[#407BFF]" />
+              Effective
             </p>
           </div>
 
-          <hr className=" border border-[#F0F1EB] my-3 w-[80%]" />
+          <hr className=" border border-black my-3 w-[80%]" />
 
           <Carousel textData={text} />
         </div>
 
-        <div className="md:w-[45%] flex justify-center">
-          <img src={img1} alt="hero-1" />
+        <div className="md:w-[60%] flex justify-center">
+          <img src={img1} alt="hero-1" className="" />
         </div>
       </div>
     </div>

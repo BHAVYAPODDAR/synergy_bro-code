@@ -1,56 +1,206 @@
+// import React, { useState, useEffect } from "react";
+// import DataTable from "./DataTable";
+// import UserDetails from "./UserDetails";
+// import { UserAuth } from "../FirebaseAuthContext/AuthContext";
+
+// const MainDash = () => {
+//   const [userData, setUserData] = useState([]);
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const response = await fetch("/getUserData");
+//         if (response.ok) {
+//           const data = await response.json();
+//           setUserData(data);
+//         } else {
+//           console.error("Failed to fetch user data");
+//         }
+//       } catch (error) {
+//         console.error("Error fetching user data:", error);
+//       }
+//     };
+
+//     fetchData();
+//   }, []);
+//   return (
+//     <div className="container mx-auto px-4 py-8">
+//       <h1 className="text-3xl font-bold mb-8">Patient Assessment Questions</h1>
+//       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+//         <div className="bg-white shadow-md p-6 rounded-md">
+//           <h2 className="text-xl font-semibold mb-4">
+//             Mental Health Questions
+//           </h2>
+//           <div>
+//             <h3 className="text-lg font-medium mb-2">
+//               Have you been isolating yourself from others or withdrawing from
+//               activities you used to enjoy?
+//             </h3>
+//             {/* Answer field or options can be added here */}
+//           </div>
+//           <div>
+//             <h3 className="text-lg font-medium mb-2">
+//               Have you been using alcohol or drugs to cope with your feelings?
+//             </h3>
+//             {/* Answer field or options can be added here */}
+//           </div>
+//           <div>
+//             <h3 className="text-lg font-medium mb-2">
+//               How do you feel about reaching out for support or talking to
+//               someone about your mental health?
+//             </h3>
+//             {/* Answer field or options can be added here */}
+//           </div>
+//           <div>
+//             <h3 className="text-lg font-medium mb-2">
+//               Can you describe in a line your relationship with friends and
+//               family?
+//             </h3>
+//             {/* Answer field or options can be added here */}
+//           </div>
+//         </div>
+//         <div className="bg-white shadow-md p-6 rounded-md">
+//           <h2 className="text-xl font-semibold mb-4">
+//             Physical Health Questions
+//           </h2>
+//           <div>
+//             <h3 className="text-lg font-medium mb-2">
+//               Have you been experiencing any physical symptoms or discomfort?
+//             </h3>
+//             {/* Answer field or options can be added here */}
+//           </div>
+//           <div>
+//             <h3 className="text-lg font-medium mb-2">
+//               What do you see in this image (glass)?
+//             </h3>
+//             {/* Answer field or options can be added here */}
+//           </div>
+//           <div>
+//             <h3 className="text-lg font-medium mb-2">
+//               What do you see in this image (man)?
+//             </h3>
+//             {/* Answer field or options can be added here */}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default MainDash;
+
 import React, { useState, useEffect } from "react";
-import DataTable from "./DataTable";
-import UserDetails from "./UserDetails";
-import { UserAuth } from "../FirebaseAuthContext/AuthContext";
 
 const MainDash = () => {
-  const { user } = UserAuth();
-  const [soilData, setSoilData] = useState({});
+  const [userData, setUserData] = useState([]);
+  const [expandedUser, setExpandedUser] = useState(null);
 
   useEffect(() => {
-    const fetchSoilData = async (user) => {
+    const fetchData = async () => {
       try {
-        const response = await fetch(`/getUserData/${user.email}`);
-        if (!response.ok) {
-          throw new Error("Failed to fetch soil data");
+        const response = await fetch("/getUserData");
+        if (response.ok) {
+          const data = await response.json();
+          setUserData(data);
+        } else {
+          console.error("Failed to fetch user data");
         }
-        const data = await response.json();
-        setSoilData(data[0]);
       } catch (error) {
-        console.error("Error fetching soil data:", error);
+        console.error("Error fetching user data:", error);
       }
     };
 
-    // Call the function to fetch soil data
-    fetchSoilData(user);
-  }, [user]);
+    fetchData();
+  }, []);
 
-  const CropData = [
-    { name: "Wheat", season: "Winter", area: 1000, kgha: 1500 },
-    { name: "Rice", season: "Monsoon", area: 2000, kgha: 2000 },
-    { name: "Maize", season: "Summer", area: 1500, kgha: 1800 },
-    { name: "Barley", season: "Winter", area: 1200, kgha: 1600 },
-  ];
+  const toggleUserDetails = (email) => {
+    setExpandedUser(email === expandedUser ? null : email);
+  };
 
   return (
-    <div className="p-5 h-full ">
-      <div className=" bg-white h-3/4 p-3 rounded-md text-gray-900 border-2 mb-3">
-        <h1 className="text-3xl font-bold  border-b-2 pb-2">My Dashboard</h1>
-
-        <UserDetails
-          yield_performance={soilData.yield_performance}
-          soil_health={soilData.soil_health}
-          irrigation_condition={soilData.irrigation_condition}
-          risk_property_flood={soilData.risk_property_flood}
-          risk_property_drought={soilData.risk_property_drought}
-        />
-      </div>
-      {/* <div>
-        <h1 className="text-xl font-bold py-3">
-          Major crops & their performance
-        </h1>
-        <DataTable data={CropData} />
-      </div> */}
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-8">Patient Assessment Questions</h1>
+      {userData.map((user) => (
+        <div
+          key={user.email}
+          className="bg-white shadow-md p-6 rounded-md mb-6"
+        >
+          <div className="flex justify-between items-center">
+            <h2 className="text-xl font-semibold mb-4">
+              User Email: {user.email}
+            </h2>
+            <button
+              className="text-blue-500"
+              onClick={() => toggleUserDetails(user.email)}
+            >
+              {expandedUser === user.email ? "Hide Details" : "Show Details"}
+            </button>
+          </div>
+          {expandedUser === user.email && (
+            <div>
+              <div className="mb-4">
+                <h3 className="text-lg font-medium mb-2">Question 1</h3>
+                <p>
+                  Have you been isolating yourself from others or withdrawing
+                  from activities you used to enjoy?
+                </p>
+                {user.isolating}
+              </div>
+              <div className="mb-4">
+                <h3 className="text-lg font-medium mb-2">Question 2</h3>
+                <p>
+                  Have you been using alcohol or drugs to cope with your
+                  feelings?
+                </p>
+                {user.usingSubstances}
+              </div>
+              <div className="mb-4">
+                <h3 className="text-lg font-medium mb-2">Question 3</h3>
+                <p>
+                  Have you been experiencing any physical symptoms, such as
+                  changes in appetite or sleep patterns?
+                </p>
+                {user.experiencingPhysicalSymptoms}
+              </div>
+              <div className="mb-4">
+                <h3 className="text-lg font-medium mb-2">Question 4</h3>
+                <p>
+                  How do you feel about reaching out for support or talking to
+                  someone about your mental health?
+                </p>
+                {user.question1}
+              </div>
+              <div className="mb-4">
+                <h3 className="text-lg font-medium mb-2">Question 5</h3>
+                <p>
+                  Can you describe in a line your relationship with friends and
+                  family?
+                </p>
+                {user.question2}
+              </div>
+              <div className="mb-4">
+                <h3 className="text-lg font-medium mb-2">Question 6</h3>
+                <p>
+                  Have you been experiencing any physical symptoms or
+                  discomfort?
+                </p>
+                {user.question3}
+              </div>
+              <div className="mb-4">
+                <h3 className="text-lg font-medium mb-2">Question 7</h3>
+                <p>What do you see in this image (glass)?</p>
+                {user.glass}
+              </div>
+              <div className="mb-4">
+                <h3 className="text-lg font-medium mb-2">Question 8</h3>
+                <p>What do you see in this image (man)?</p>
+                {user.man}
+              </div>
+              {/* Repeat for other questions */}
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   );
 };

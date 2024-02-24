@@ -17,27 +17,27 @@ function Navbar() {
 
       <ul className="hidden md:flex font-bold text-base">
         <a href="/About">
-          <li className="p-1 px-7 transition duration-300 hover:text-[#7fe4b2]  cursor-pointer">
+          <li className="p-1 px-7 transition duration-300 hover:text-[#d36cdb]  cursor-pointer">
             About Us
           </li>
         </a>
         <a href="/Blog">
-          <li className="p-1 px-7 transition duration-300 hover:text-[#7fe4b2]  cursor-pointer">
+          <li className="p-1 px-7 transition duration-300 hover:text-[#d36cdb]  cursor-pointer">
             Blogs
           </li>
         </a>
         <a href="/Community">
-          <li className="p-1 px-7 transition duration-300 hover:text-[#7fe4b2]  cursor-pointer">
+          <li className="p-1 px-7 transition duration-300 hover:text-[#d36cdb]  cursor-pointer">
             Community
           </li>
         </a>
       </ul>
 
       <ul className="hidden md:flex font-bold text-base mr-14">
-        <li className="p-2 px-10 transition duration-300 hover:text-[#7fe4b2]  cursor-pointer">
+        <li className="p-2 px-10 transition duration-300 hover:text-[#d36cdb]  cursor-pointer">
           <a href="/Login">Login</a>
         </li>
-        <li className="p-2 px-4 bg-[#62D69C] rounded-3xl transition duration-300 hover:text-white  cursor-pointer">
+        <li className="p-2 px-4 bg-gradient-to-br from-[#d36cdb] to-[#407BFF] rounded-3xl transition duration-300 hover:text-white  cursor-pointer">
           <button>
             <a href="/SignUp">Get Started</a>
           </button>

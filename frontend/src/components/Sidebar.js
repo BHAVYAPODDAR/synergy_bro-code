@@ -335,9 +335,9 @@ export default function Sidebar({ setLogin }) {
         text: "Dashboard",
       },
       {
-        to: "/transaction",
+        to: "/assessment",
         icon: <MdChecklist className="mr-3 " size={25} />,
-        text: "transaction",
+        text: "Assesment",
       },
       {
         to: "/patients",

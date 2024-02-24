@@ -146,7 +146,7 @@ const UserProfile = () => {
 
   const submitAnswers = async () => {
     try {
-      const response = await fetch("/userData", {
+      const response = await fetch("/addUserData", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
