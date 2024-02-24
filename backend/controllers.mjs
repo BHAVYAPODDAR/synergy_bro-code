@@ -1,21 +1,36 @@
-// import firebase from 'firebase/compat/app'; // Import the 'compat' version for backward compatibility
-// import "firebase/compat/database"; // Import the 'compat' version for backward compatibility
 import admin from "firebase-admin";
 
 export const userData = async (req, res) => {
   try {
-    const { email } = req.body; // Extract 'name' and 'email' from the request body
+    const {
+      email,
+      experiencingPhysicalSymptoms,
+      glass,
+      isolating,
+      man,
+      question1,
+      question2,
+      question3,
+      usingSubstances,
+    } = req.body; // Extract 'name' and 'email' from the request body
 
-    const user = {
+    const userData = {
       email: email,
-      balance: 10000,
+      experiencingPhysicalSymptoms: experiencingPhysicalSymptoms,
+      glass: glass,
+      isolating: isolating,
+      man: man,
+      question1: question1,
+      question2: question2,
+      question3: question3,
+      usingSubstances: usingSubstances,
     };
 
     const db = admin.firestore();
-    const collectionRef = db.collection("user"); // Replace with your actual collection name
+    const collectionRef = db.collection("userData"); // Replace with your actual collection name
 
     // Insert 'name' and 'email' into Firestore
-    const docRef = await collectionRef.add(user);
+    const docRef = await collectionRef.add(userData);
 
     res.json({ message: "Data inserted successfully!", docId: docRef.id });
   } catch (error) {
@@ -71,25 +86,17 @@ export const getRiskData = async (req, res) => {
   }
 };
 
-export const getUserSoil = async (req, res) => {
+export const getUserData = async (req, res) => {
   try {
-    const email = req.params.email;
-
-    if (!email) {
-      return res.status(400).json({ error: "Email is required." });
-    }
-
     const db = admin.firestore();
-    const usersRef = db.collection("userSoilData");
+    const usersRef = db.collection("userData");
 
-    // Query Firestore based on the 'recEmail' field
-    const soilData = await usersRef.where("email", "==", email).get();
+    const snapshot = await usersRef.get();
 
-    if (soilData.empty) {
-      return res.status(404).json({ error: "User not found." });
-    }
+    // Extract data from the documents
+    const userData = snapshot.docs.map((doc) => doc.data());
 
-    res.json(soilData);
+    res.json(userData);
   } catch (error) {
     console.error("Error retrieving user data from Firestore:", error);
     res.status(500).json({ error: "Internal Server Error" });
@@ -149,3 +156,6 @@ export const getUser = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
+// git config user.name "AryanGupta2406"
+// git config user.email "aryanworkgp2406@gmail.com"

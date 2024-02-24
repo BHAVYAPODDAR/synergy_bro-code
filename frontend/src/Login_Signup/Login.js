@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import axios from "axios";
 import { UserAuth } from "../FirebaseAuthContext/AuthContext";
-
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import logo from "../Logos/logo.png";
-import hero from "./fitness-hero.png";
+import hero from "./Login.png";
 import Flip from "react-reveal/Flip";
 import Fade from "react-reveal/Fade";
 
-const Login = ({ setLogin }) => {
+const Login = ({ setLogin, isPatient, setIsPatient }) => {
+  // Pass isPatient and setIsPatient as props
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -26,7 +25,8 @@ const Login = ({ setLogin }) => {
     try {
       await signIn(email, password);
       setLogin(true);
-      navigate("/Dashboard");
+      // Redirect user based on the checkbox
+      navigate(isPatient ? "/Blog" : "/Dashboard");
     } catch (e) {
       setError(e.message);
       console.log(error);
@@ -40,7 +40,7 @@ const Login = ({ setLogin }) => {
     >
       <div className="w-[60%] flex flex-col items-center justify-center h-full">
         <Flip left>
-          <img src={hero} alt="rupee" className=" w-[550px]" />
+          <img src={hero} alt="rupee" className=" w-[700px]" />
         </Flip>
       </div>
 
@@ -64,7 +64,7 @@ const Login = ({ setLogin }) => {
 
               <h4 className="font-semibold text-[#c0c0c0] cursor-pointer">
                 Not Signed Up?{" "}
-                <span className="text-[#62D69C]">
+                <span className="text-[#d36cdb]">
                   <Link to="/SignUp">SignUp</Link>
                 </span>
               </h4>
@@ -98,13 +98,24 @@ const Login = ({ setLogin }) => {
                 />
               </div>
 
+              {/* Checkbox for patient */}
+              <div className="flex items-center mt-5">
+                <input
+                  type="checkbox"
+                  checked={isPatient}
+                  onChange={(e) => setIsPatient(e.target.checked)}
+                  className="mr-2"
+                />
+                <label className="text-subtext">Are you a patient?</label>
+              </div>
+
               <div className="mt-8 mb-5">
                 <Link to="/Dashboard">
                   <button
                     onClick={handleSubmit}
                     variant="contained"
                     color="success"
-                    className="w-full bg-[#62D69C] text-white font-bold shadow-md"
+                    className="w-full bg-[#d36cdb] text-white font-bold shadow-md"
                     style={{ padding: "10px" }}
                   >
                     Login
@@ -135,69 +146,3 @@ const Login = ({ setLogin }) => {
 };
 
 export default Login;
-
-//   const navigate = useNavigate();
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const {role, setRole} = useRoleContext();
-
-//   const [error, setError] = useState('');
-//   const navigate = useNavigate();
-//   const { signIn } = UserAuth();
-
-//   const webcamRef = useRef(null);
-//   const [capturedImage, setCapturedImage] = useState(null);
-//   const [webcamActivated, setWebcamActivated] = useState(false);
-//   const activateWebcam = () => {
-//     setWebcamActivated(true);
-//   };
-
-//   const capturePhoto = async () => {
-//     const imageSrc = webcamRef.current.getScreenshot();
-//     setCapturedImage(imageSrc);
-
-// // Send the captured image as a POST request
-// try {
-//   const response = await axios.post('/upload', { image: imageSrc });
-//   console.log('Image uploaded successfully:', response.data);
-// } catch (error) {
-//   console.error('Error sending image:', error);
-// }
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setError('')
-//     try {
-//       await signIn(email, password)
-//       setPatient(true)
-//       navigate('/community')
-//     } catch (e) {
-//       setError(e.message)
-//       console.log(error)
-//     }
-//   };
-
-//   const url = "http://localhost:5000/";
-
-//   const loginUser = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const res = await axios.post(url + `login${role}`, { email, password });
-//       const token = res.data.authToken;
-//       localStorage.setItem("token", token);
-//       localStorage.setItem("userType", role);
-//       if (role === "user") {
-//         setMe(true);
-//         navigate("/pension");
-//       } else if (role === "helper") {
-//         setMe(true);
-//         navigate("/postjobs");
-//       }
-//     } catch (err) {
-//       setEmail("");
-//       setPassword("");
-//       alert("Error occured while logging in");
-//       console.log(err);
-//     }
-//   };

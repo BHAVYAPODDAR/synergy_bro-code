@@ -6,7 +6,7 @@ import { UserAuth } from "../FirebaseAuthContext/AuthContext";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import logo from "../Logos/logo.png";
-import hero from "./fitness-hero2.png";
+import hero from "./Signup.png";
 import Flip from "react-reveal/Flip";
 import Fade from "react-reveal/Fade";
 
@@ -60,7 +60,7 @@ const Signup = ({ setLogin }) => {
 
               <h4 className="font-semibold text-[#c0c0c0] cursor-pointer">
                 Already Signed Up?{" "}
-                <span className="text-[#62D69C]">
+                <span className="text-[#407BFF]">
                   <Link to="/Login">Login</Link>
                 </span>
               </h4>
@@ -98,7 +98,7 @@ const Signup = ({ setLogin }) => {
                 <Link to="/Profile">
                   <button
                     onClick={handleSubmit}
-                    className="w-full bg-[#62D69C] text-white font-bold"
+                    className="w-full bg-[#407BFF] text-white font-bold"
                     style={{ padding: "10px" }}
                   >
                     Sign Up
@@ -127,7 +127,7 @@ const Signup = ({ setLogin }) => {
 
       <div className="w-[60%] flex flex-col items-center justify-center h-full">
         <Flip left>
-          <img src={hero} alt="hero" className=" w-[550px]" />
+          <img src={hero} alt="hero" className=" w-[700px]" />
         </Flip>
       </div>
     </div>

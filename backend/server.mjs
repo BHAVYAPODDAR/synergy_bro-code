@@ -1,12 +1,10 @@
-// Importing necessary modules
-
 import express from "express";
 import admin from "firebase-admin";
 import {
   getLoanData,
   getRiskData,
   getUser,
-  getUserSoil,
+  getUserData,
   transaction,
   userData,
 } from "./controllers.mjs";
@@ -32,13 +30,13 @@ app.get("/api/sample", (req, res) => {
 });
 
 // Define an endpoint that interacts with Firestore
-app.post("/addUserData", userData);
+app.post("/addUserData", userData); // post
 
 app.post("/transfer", transaction);
 
-app.get("/getriskdata", getRiskData);
+app.get("/getRisk/", getRiskData);
 
-app.get("/getUserSoilData/:email", getUserSoil);
+app.get("/getUserData", getUserData); // get
 
 app.get("/getLoanRequest/:email", getLoanData);
 
