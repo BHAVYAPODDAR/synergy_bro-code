@@ -11,7 +11,7 @@ function Navbar() {
   };
 
   return (
-    <div className=" bg-white flex justify-between px-10 h-20  items-center py-11 border-b-[1px] border-gray-300  w-full md:z-0 z-50">
+    <div className=" bg-gradient-to-r from-blue-200 to-blue-100 flex justify-between px-10 h-20  items-center py-11 border-b-[1px] border-gray-300  w-full md:z-0 z-50">
       <ul className="hidden md:flex items-center gap-2">
         <a href="/" className="w-32 font-bold">
           <img src={logo} alt="main navbar logo" />

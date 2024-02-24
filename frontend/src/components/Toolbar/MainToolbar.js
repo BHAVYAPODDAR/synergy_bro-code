@@ -39,7 +39,7 @@ export default function Sidebar() {
   //   const [open, setOpen] = useState(false);
 
   return (
-    <div className="w-full shadow-lg ">
+    <div className="w-full shadow-lg bg-gradient-to-r from-blue-200 to-blue-100">
       <Box display="flex" justifyContent="space-between" p={2}>
         <div className="flex items-center justify-center">
           <Button onClick={toggleDrawer(true)}>

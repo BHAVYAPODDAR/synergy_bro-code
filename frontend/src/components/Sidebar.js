@@ -131,8 +131,11 @@ export default function Sidebar({ setLogin }) {
       <div
         onClick={toggleDrawer(false)}
         onKeyDown={toggleDrawer(false)}
-        className="p-5 my-6  h-full flex flex-col items-center justify-start"
+        className="p-5 my-6  h-full flex flex-col items-center justify-start "
         style={{ maxWidth: "300px" }}
+        bg-gradient-to-r
+        from-blue-200
+        to-blue-100
       >
         <img src={logo} alt="trucomply logo" className="h-[40px] w-[150px]" />
         <List>
@@ -155,7 +158,7 @@ export default function Sidebar({ setLogin }) {
   };
 
   return (
-    <div className="w-full shadow-lg">
+    <div className="w-full shadow-lg bg-gradient-to-r from-blue-200 to-blue-100">
       <Box display="flex" justifyContent="space-between" p={2}>
         <div className="flex items-center justify-center">
           <Button onClick={toggleDrawer(true)}>

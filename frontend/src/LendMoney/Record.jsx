@@ -12,9 +12,9 @@ const Record = (props) => {
   return (
     <div className="w-full grid grid-cols-5 gap-3 p-3 border-b border-gray-200">
       <div className="text-gray-900">{props.email}</div>
-      <div className="text-gray-900">&#8377; {props.loan_amount}</div>
+      <div className="text-gray-900">M</div>
       <div className="text-gray-900">{props.loan_period}</div>
-      <div className="text-gray-900">{props.credit_score}</div>
+      <div className="text-gray-900">{props.iq}</div>
       <div
         className="flex items-center space-x-2 text-black cursor-pointer "
         onClick={handleShowDetails}

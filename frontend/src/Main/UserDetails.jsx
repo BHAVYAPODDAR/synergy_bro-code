@@ -83,6 +83,12 @@ const UserDetails = (props) => {
             value={props.risk_property_drought}
             maxValue="200"
           />
+          <Items
+            key="Delta"
+            name="Delta"
+            value={props.risk_property_drought}
+            maxValue="200"
+          />
         </section>
         <section className="">
           <HorizontalBarChart data={props} />
@@ -93,7 +99,7 @@ const UserDetails = (props) => {
           <div>
             <h1 className="text-lg font-bold">Total score</h1>
             <h1 className=" font-bold text-xl">
-              <span className="text-4xl">{totalScore}</span> / 1000
+              <span className="text-4xl">{totalScore}</span> / 1200
             </h1>
           </div>
           <div>

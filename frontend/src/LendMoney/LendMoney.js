@@ -26,8 +26,8 @@ const LendMoney = () => {
 
   return (
     <div className="p-5 bg-gradient-to-r from-blue-200 to-blue-100">
-      <h1 className="text-5xl font-thin mb-5">Loan requests</h1>
-      <div className="w-full h-full bg-white grid grid-cols-5 gap-3 p-3 shadow-lg rounded-lg">
+      <h1 className="text-5xl font-thin mb-5">Patient Data</h1>
+      <div className="w-full h-full bg-white grid grid-cols-5 gap-3 p-3 rounded-lg">
         <h1 className="text-xl text-gray-800 font-bold ">Applicant name</h1>
         <h1 className="text-xl text-gray-800 font-bold ">Sex</h1>
         <h1 className="text-xl text-gray-800 font-bold ">Age</h1>
