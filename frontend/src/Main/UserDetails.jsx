@@ -14,35 +14,26 @@ const UserDetails = (props) => {
   };
 
   useEffect(() => {
-    const {
-      yield_performance,
-      soil_health,
-      irrigation_condition,
-      risk_property_flood,
-      risk_property_drought,
-    } = props;
+    const { alpha, beta, gamma, delta, theta, highbeta } = props;
 
     // Convert string values to integers
-    const yieldPerformanceInt = parseInt(yield_performance, 10);
-    const soilHealthInt = parseInt(soil_health, 10);
-    const irrigationConditionInt = parseInt(irrigation_condition, 10);
-    const riskPropertyFloodInt = parseInt(risk_property_flood, 10);
-    const riskPropertyDroughtInt = parseInt(risk_property_drought, 10);
+    const alphaInt = parseInt(alpha, 10);
+    const betaInt = parseInt(beta, 10);
+    const gammaInt = parseInt(gamma, 10);
+    const deltaInt = parseInt(delta, 10);
+    const thetaInt = parseInt(theta, 10);
+    const highbetaInt = parseInt(highbeta, 10);
 
     // Calculate total score by summing up all values
     const score =
-      yieldPerformanceInt +
-      soilHealthInt +
-      irrigationConditionInt +
-      riskPropertyFloodInt +
-      riskPropertyDroughtInt;
+      alphaInt + betaInt + gammaInt + deltaInt + thetaInt + highbetaInt;
 
     setTotalScore(score);
 
     // Determine risk type based on total score
-    if (score < 290) {
+    if (score < 400) {
       setRiskType("High risk");
-    } else if (score < 690 && score >= 290) {
+    } else if (score >= 400 && score <= 100) {
       setRiskType("Medium risk");
     } else {
       setRiskType("Low risk");
@@ -56,39 +47,14 @@ const UserDetails = (props) => {
           <Items
             key="highbeta"
             name="highbeta"
-            value={props.yield_performance}
+            value={props.highbeta}
             maxValue="200"
           />
-          <Items
-            key="Alpha"
-            name="Alpha"
-            value={props.soil_health}
-            maxValue="200"
-          />
-          <Items
-            key="Beta"
-            name="Beta"
-            value={props.irrigation_condition}
-            maxValue="200"
-          />
-          <Items
-            key="Gamma"
-            name="Gamma"
-            value={props.risk_property_flood}
-            maxValue="200"
-          />
-          <Items
-            key="Theta"
-            name="Theta"
-            value={props.risk_property_drought}
-            maxValue="200"
-          />
-          <Items
-            key="Delta"
-            name="Delta"
-            value={props.risk_property_drought}
-            maxValue="200"
-          />
+          <Items key="Alpha" name="Alpha" value={props.alpha} maxValue="200" />
+          <Items key="Beta" name="Beta" value={props.beta} maxValue="200" />
+          <Items key="Gamma" name="Gamma" value={props.gamma} maxValue="200" />
+          <Items key="Theta" name="Theta" value={props.theta} maxValue="200" />
+          <Items key="Delta" name="Delta" value={props.delta} maxValue="200" />
         </section>
         <section className="">
           <HorizontalBarChart data={props} />

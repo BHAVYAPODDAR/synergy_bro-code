@@ -13,7 +13,7 @@ import MainDash from "./Main/MainDash";
 import UserProfile from "./Main/Profile/UserProfile";
 import Transactions from "./Transaction/Transactions";
 import TransferMoney from "./Transaction/TransferMoney";
-import LendMoney from "./LendMoney/LendMoney";
+import PatientData from "./Patient/PatientData";
 
 // import Rewards from './Main/Rewards/Rewards';
 
@@ -35,7 +35,7 @@ function App() {
           <Route path="/Profile" element={<UserProfile />} />
           <Route path="/transaction" element={<Transactions />} />
           <Route path="/transfer" element={<TransferMoney />} />
-          <Route path="/lend" element={<LendMoney />} />
+          <Route path="/patients" element={<PatientData />} />
         </Routes>
       </AuthContextProvider>
     </div>

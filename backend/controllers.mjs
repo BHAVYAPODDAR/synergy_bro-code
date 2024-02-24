@@ -49,41 +49,24 @@ export const transaction = async (req, res) => {
   }
 };
 
-export const getTransactionData = async (req, res) => {
+export const getRiskData = async (req, res) => {
   try {
-    const email = req.params.email;
-
-    if (!email) {
-      return res.status(400).json({ error: "Email is required." });
-    }
-
     const db = admin.firestore();
-    const usersRef = db.collection("transaction");
+    const usersRef = db.collection("risk");
 
-    // Query Firestore based on the 'recEmail' field
-    const recData = await usersRef.where("recEmail", "==", email).get();
+    // Query Firestore to get all data
+    const riskData = await usersRef.get();
 
-    // Query Firestore based on the 'senderEmail' field
-    const senderData = await usersRef.where("senderEmail", "==", email).get();
-
-    // Combine data from both queries into an array
-    const data = [];
-
-    if (!recData.empty) {
-      data.push(...recData.docs.map((doc) => doc.data()));
-    }
-
-    if (!senderData.empty) {
-      data.push(...senderData.docs.map((doc) => doc.data()));
-    }
+    // Extract data from the documents
+    const data = riskData.docs.map((doc) => doc.data());
 
     if (data.length === 0) {
-      return res.status(404).json({ error: "User not found." });
+      return res.status(404).json({ error: "No data found." });
     }
 
     res.json(data);
   } catch (error) {
-    console.error("Error retrieving user data from Firestore:", error);
+    console.error("Error retrieving data from Firestore:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };

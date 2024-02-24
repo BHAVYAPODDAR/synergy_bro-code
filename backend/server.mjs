@@ -4,7 +4,7 @@ import express from "express";
 import admin from "firebase-admin";
 import {
   getLoanData,
-  getTransactionData,
+  getRiskData,
   getUser,
   getUserSoil,
   transaction,
@@ -12,7 +12,8 @@ import {
 } from "./controllers.mjs";
 
 // Import the service account key
-const serviceAccount = "./spit-5b840-firebase-adminsdk-h59x8-e98e98d960.json";
+const serviceAccount =
+  "./synergy-35091-firebase-adminsdk-lyl17-b81aa92e14.json";
 
 // Initialize Firebase Admin SDK
 admin.initializeApp({
@@ -35,7 +36,7 @@ app.post("/addUserData", userData);
 
 app.post("/transfer", transaction);
 
-app.get("/gettransfer/:email", getTransactionData);
+app.get("/getriskdata", getRiskData);
 
 app.get("/getUserSoilData/:email", getUserSoil);
 

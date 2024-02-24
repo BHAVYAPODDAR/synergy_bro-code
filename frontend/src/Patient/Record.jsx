@@ -12,9 +12,9 @@ const Record = (props) => {
   return (
     <div className="w-full grid grid-cols-5 gap-3 p-3 border-b border-gray-200">
       <div className="text-gray-900">{props.email}</div>
-      <div className="text-gray-900">M</div>
-      <div className="text-gray-900">{props.loan_period}</div>
-      <div className="text-gray-900">{props.iq}</div>
+      <div className="text-gray-900">{props.sex}</div>
+      <div className="text-gray-900">{props.age}</div>
+      <div className="text-gray-900">{props.IQ}</div>
       <div
         className="flex items-center space-x-2 text-black cursor-pointer "
         onClick={handleShowDetails}
@@ -30,11 +30,12 @@ const Record = (props) => {
         className={`border-2 p-3 col-span-5 ${!showDetails ? "hidden" : ""}`}
       >
         <UserDetails
-          yield_performance={props.yield_performance}
-          soil_health={props.soil_health}
-          irrigation_condition={props.irrigation_condition}
-          risk_property_flood={props.risk_property_flood}
-          risk_property_drought={props.risk_property_drought}
+          alpha={props.alpha}
+          beta={props.beta}
+          gamma={props.gamma}
+          theta={props.theta}
+          highbeta={props.highbeta}
+          delta={props.delta}
         />
       </div>
     </div>

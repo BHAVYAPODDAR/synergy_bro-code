@@ -4,25 +4,25 @@ import Record from "./Record";
 
 const LendMoney = () => {
   const { user } = UserAuth();
-  const [loanData, setLoanData] = useState([]);
+  const [riskData, setRiskData] = useState([]);
 
   useEffect(() => {
-    const fetchLoanData = async (user) => {
+    const fetchRiskData = async () => {
       try {
-        const response = await fetch(`/getLoanRequest/${user.email}`);
+        const response = await fetch("/getRiskData");
         if (!response.ok) {
-          throw new Error("Failed to fetch loan data");
+          throw new Error("Network response was not ok");
         }
-        console.log(user);
         const data = await response.json();
-        setLoanData(data);
+        setRiskData(data);
+        console.log(data);
       } catch (error) {
-        console.error("Error fetching loan data:", error);
+        console.error("Error fetching risk data:", error);
       }
     };
 
-    fetchLoanData(user);
-  }, [user]);
+    fetchRiskData();
+  }, []);
 
   return (
     <div className="p-5 bg-gradient-to-r from-blue-200 to-blue-100">
@@ -34,7 +34,7 @@ const LendMoney = () => {
         <h1 className="text-xl text-gray-800 font-bold ">IQ</h1>
         <h1 className="text-xl text-gray-800 font-bold ">Risk assessment</h1>
       </div>
-      {loanData.map((data, index) => (
+      {riskData.map((data, index) => (
         <Record key={index} {...data} />
       ))}
     </div>
