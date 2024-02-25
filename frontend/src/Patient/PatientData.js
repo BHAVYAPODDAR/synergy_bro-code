@@ -9,7 +9,7 @@ const LendMoney = () => {
   useEffect(() => {
     const fetchRiskData = async () => {
       try {
-        const response = await fetch("/getRiskData");
+        const response = await fetch("/getRisk");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -25,7 +25,7 @@ const LendMoney = () => {
   }, []);
 
   return (
-    <div className="p-5 bg-gradient-to-r from-blue-200 to-blue-100">
+    <div className="p-5 bg-gradient-to-r from-blue-200 to-blue-100 h-full">
       <h1 className="text-5xl font-thin mb-5">Patient Data</h1>
       <div className="w-full h-full bg-white grid grid-cols-5 gap-3 p-3 rounded-lg">
         <h1 className="text-xl text-gray-800 font-bold ">Applicant name</h1>

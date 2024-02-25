@@ -20,7 +20,7 @@ admin.initializeApp({
 
 // Create an Express app
 const app = express();
-const port = 5000; // or your desired port
+const port = 5500; // or your desired port
 
 app.use(express.json());
 
