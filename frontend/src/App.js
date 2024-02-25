@@ -22,7 +22,9 @@ import Assessment from "./Assesment/Assessment";
 
 function App() {
   const [login, setLogin] = useState(false);
-  useEffect(() => {}, [login]);
+  useEffect(() => {
+    console.log(login);
+  }, [login]);
 
   const [isPatient, setIsPatient] = useState(false);
 

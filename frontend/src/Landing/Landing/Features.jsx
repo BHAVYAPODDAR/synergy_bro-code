@@ -10,28 +10,28 @@ const Features = () => {
 
   const data = [
     {
-      logo: <AiFillInteraction size={40} />,
-      heading: "Intuitive Interface",
+      logo: <AiOutlineSafetyCertificate size={40} />,
+      heading: "Comprehensive disorder report",
       content:
-        "Enjoy an intuitive and user-friendly interface that simplifies compliance management for all users.",
+        "Empower yourself with knowledge to make informed decisions about your health and well-being.",
     },
     {
       logo: <IoIosTimer size={40} />,
-      heading: "Real-Time Transaction Monitoring",
+      heading: "AI Chat Companion",
       content:
-        "Monitor transactions in real-time, enabling quick detection of any compliance issues and ensuring regulatory adherence.",
+        "Engage in seamless conversational interactions with our text-to-text user chatbot, designed to provide instant responses and personalized assistance.",
+    },
+    {
+      logo: <AiFillInteraction size={40} />,
+      heading: "Assessments",
+      content:
+        "Assess your mental health, cognitive abilities, and emotional well-being with a variety of interactive assessments.",
     },
     {
       logo: nhf,
-      heading: "Advanced Credit Scoring Analysis",
+      heading: "Voice to Voice AI Companion",
       content:
-        "Leverage cutting-edge credit scoring analysis tools to gain deeper insights into creditworthiness and risk assessment.",
-    },
-    {
-      logo: <AiOutlineSafetyCertificate size={40} />,
-      heading: "Critical Agricultural Analytics",
-      content:
-        "Access critical agricultural analytics to optimize farming practices, improve yield performance, and mitigate risks effectively.",
+        "Meet our innovative Voice-to-Voice Chatbot: Your Conversational AI Companion for Hands-Free Assistance and Instant Responses",
     },
   ];
 
@@ -40,17 +40,17 @@ const Features = () => {
       style={{ backgroundImage: `url(${bag2})`, backgroundSize: "cover" }}
       className="h-auto flex flex-col items-center justify-center py-5"
     >
-      <h1 className="text-5xl  font-bold text-center py-5">
-        Advanced Compliance Features
-      </h1>
+      <h1 className="text-5xl  font-bold text-center py-5">CareAI Features</h1>
       <p className="md:text-xl text-lg italic font-semibold text-gray-500 text-center my-5 px-10">
-        Ensure your business stays compliant effortlessly. With TruComply,
-        <br /> you can manage and track compliance tasks seamlessly.
+        Care AI revolutionizes healthcare by seamlessly integrating advanced
+        machine learning technology with personalized care
+        <br /> empowering individuals to take proactive control of their health
+        journey.{" "}
       </p>
 
       <div className="grid md:grid-cols-4 grid-cols-1 place-items-center items-center justify-center m-10 ">
         {data.map((data) => (
-          <div className="mx-5 p-6 bg-white rounded-2xl transition duration-700 hover:-translate-y-3 hover:bg-[#7fe4b2] text-[#7fe4b2] hover:text-white group shadow-2xl font-bold">
+          <div className="mx-5 p-6 bg-white rounded-2xl transition duration-700 hover:-translate-y-3 hover:bg-gradient-to-br from-[#d36cdb] to-[#407BFF] text-[[#d36cdb]] hover:text-white group shadow-2xl font-bold">
             {data.logo === nhf ? (
               <img src={data.logo} alt="features" className="h-12 " />
             ) : (

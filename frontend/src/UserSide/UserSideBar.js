@@ -91,6 +91,12 @@ export default function Sidebar({ setLogin }) {
         text: "Blogs",
       },
       {
+        to: "http://localhost:8502/",
+        icon: <GrCompliance className="mr-3 " size={25} />,
+        text: "Text-ChatBot",
+      },
+
+      {
         to: "/Community",
         icon: <MdChecklist className="mr-3 " size={25} />,
         text: "Community",
@@ -101,9 +107,9 @@ export default function Sidebar({ setLogin }) {
         text: "Questionare",
       },
       {
-        to: "/transfer",
+        to: "http://localhost:8501",
         icon: <FaPeopleGroup className="mr-3 " size={25} />,
-        text: "Transfer Money",
+        text: "Report",
       },
     ];
 
@@ -125,12 +131,21 @@ export default function Sidebar({ setLogin }) {
                 key={index}
                 className="my-5 hover:text-[#d36cdb] border-b-2"
               >
-                <Link to={item.to}>
-                  <Button style={{ color: "black" }}>
-                    {item.icon}
-                    {item.text}
-                  </Button>
-                </Link>
+                {item.text === "Report" ? (
+                  <a href={item.to} target="_blank" rel="noopener noreferrer">
+                    <Button style={{ color: "black" }}>
+                      {item.icon}
+                      {item.text}
+                    </Button>
+                  </a>
+                ) : (
+                  <Link to={item.to}>
+                    <Button style={{ color: "black" }}>
+                      {item.icon}
+                      {item.text}
+                    </Button>
+                  </Link>
+                )}
               </ListItem>
             ))}
           </List>
