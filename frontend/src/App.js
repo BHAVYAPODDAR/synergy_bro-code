@@ -16,6 +16,7 @@ import TransferMoney from "./Transaction/TransferMoney";
 import PatientData from "./Patient/PatientData";
 import HelplineComponent from "./components/HelplineData";
 import UserSideBar from "./UserSide/UserSideBar";
+import Assessment from "./Assesment/Assessment";
 
 // import Rewards from './Main/Rewards/Rewards';
 
@@ -47,7 +48,7 @@ function App() {
           <Route path="/SignUp" element={<Signup setLogin={setLogin} />} />
           <Route path="/Dashboard" element={<MainDash />} />
           <Route path="/questionare" element={<UserProfile />} />
-          <Route path="/transaction" element={<Transactions />} />
+          <Route path="/assessment" element={<Assessment />} />
           <Route path="/transfer" element={<TransferMoney />} />
           <Route path="/patients" element={<PatientData />} />
           <Route path="/helpline" element={<HelplineComponent />} />
