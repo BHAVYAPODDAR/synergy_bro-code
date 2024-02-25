@@ -138,7 +138,7 @@ export default function Sidebar({ setLogin }) {
                       {item.text}
                     </Button>
                   </a>
-                ) : item.text === "User Analysis" ? (
+                ) : item.text === "Dashboard" ? (
                   <a href={item.to} target="_blank" rel="noopener noreferrer">
                     <Button style={{ color: "black" }}>
                       {item.icon}
