@@ -26,7 +26,7 @@ const Login = ({ setLogin, isPatient, setIsPatient }) => {
       await signIn(email, password);
       setLogin(true);
       // Redirect user based on the checkbox
-      navigate(isPatient ? "/Blog" : "/Dashboard");
+      navigate(isPatient ? "/Blog" : "/patients");
     } catch (e) {
       setError(e.message);
       console.log(error);

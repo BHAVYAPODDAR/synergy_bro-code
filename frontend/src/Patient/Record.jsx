@@ -21,7 +21,7 @@ const Record = (props) => {
       >
         <span className="text-sm">Details</span>
         <ChevronDownIcon
-          className={`bg-[#62D69C] text-white w-5 h-5 ${
+          className={`bg-[#d36cdb] text-white w-5 h-5 ${
             showDetails ? "transform rotate-180" : ""
           }`}
         />

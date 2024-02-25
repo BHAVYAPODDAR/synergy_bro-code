@@ -60,7 +60,7 @@ const UserDetails = (props) => {
           <HorizontalBarChart data={props} />
         </section>
       </div>
-      <div className="bg-[#aeeccd] text-gray-900 h-1/4 rounded-md flex justify-around items-center p-3">
+      <div className="bg-gradient-to-b from-[#407BFF] to-[#d36cdb] text-white h-1/4 rounded-md flex justify-around items-center p-3">
         <div className="grid grid-cols-2 gap-x-20 gap-y-5">
           <div>
             <h1 className="text-lg font-bold">Total score</h1>
@@ -78,13 +78,13 @@ const UserDetails = (props) => {
         </div>
         <ul>
           <li>
-            <span className="font-bold">High risk: </span> 0 - 290
+            <span className="font-bold">High risk: </span> 0 - 399
           </li>
           <li>
-            <span className="font-bold">Medium risk: </span> 300 - 690
+            <span className="font-bold">Medium risk: </span> 400 - 999
           </li>
           <li>
-            <span className="font-bold">Low risk: </span> 700 - 1000
+            <span className="font-bold">Low risk: </span> 1000 - 1200
           </li>
         </ul>
       </div>

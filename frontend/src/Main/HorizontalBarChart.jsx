@@ -41,12 +41,12 @@ const HorizontalBarChart = (props) => {
       />
       <Tooltip
         cursor={{ fill: "rgba(255,255,255,0.1)" }}
-        wrapperStyle={{ fontSize: 12, fontWeight: "bold", color: "#62D69C" }}
+        wrapperStyle={{ fontSize: 12, fontWeight: "bold", color: "#d36cdb" }}
       />
       <Legend
-        wrapperStyle={{ fontSize: 12, fontWeight: "bold", color: "#62D69C" }}
+        wrapperStyle={{ fontSize: 12, fontWeight: "bold", color: "#d36cdb" }}
       />
-      <Bar dataKey="value" fill="#62D69C" />
+      <Bar dataKey="value" fill="#d36cdb" />
     </BarChart>
   );
 };
